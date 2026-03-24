@@ -1,0 +1,106 @@
+body {
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  background: #f8f8f8;
+  color: #111;
+}
+
+/* HERO SECTION */
+.hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 60px;
+  padding: 80px 20px;
+}
+
+.hero-text {
+  max-width: 400px;
+}
+
+.hero h1 {
+  font-size: 42px;
+  margin-bottom: 10px;
+}
+
+.hero h2 {
+  font-weight: 400;
+  color: gray;
+}
+
+.hero p {
+  margin-top: 15px;
+  line-height: 1.5;
+}
+
+/* HEADSHOT */
+.hero-image img {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+
+/* NAVIGATION */
+nav {
+  background: white;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+}
+
+nav ul {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  list-style: none;
+  padding: 15px;
+  margin: 0;
+}
+
+nav li {
+  cursor: pointer;
+  position: relative;
+}
+
+/* hover underline effect */
+nav li::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  background: black;
+  left: 0;
+  bottom: -5px;
+  transition: 0.3s;
+}
+
+nav li:hover::after {
+  width: 100%;
+}
+
+
+/* CONTENT SECTIONS */
+.content {
+  padding: 60px;
+}
+
+.hidden {
+  display: none;
+}
+
+
+/* PROJECT CARDS */
+.project {
+  display: flex;
+  gap: 25px;
+  margin-top: 30px;
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+}
+
+.project img {
+  width: 200px;
+  border-radius: 8px;
+}

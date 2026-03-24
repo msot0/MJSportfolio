@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Name | Portfolio</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<!-- HERO SECTION -->
+<header class="hero">
+  <div class="hero-text">
+    <h1>Your Name</h1>
+    <h2>Creative Technology & Design</h2>
+    <p>
+      I am a creative tech and design student exploring graphic design, interactive coding, and 3D + physical creations. I enjoy crafting projects that combine aesthetics and functionality.
+    </p>
+  </div>
+
+  <div class="hero-image">
+    <img src="assets/headshot.jpg" alt="Headshot of Your Name">
+  </div>
+</header>
+
+<!-- NAVIGATION -->
+<nav>
+  <ul>
+    <li onclick="showSection('graphic')">Graphic Design</li>
+    <li onclick="showSection('interactive')">Interactive</li>
+    <li onclick="showSection('physical')">3D + Physical</li>
+  </ul>
+</nav>
+
+<!-- SECTIONS -->
+
+<section id="graphic" class="content">
+  <h2>Graphic Design</h2>
+
+  <div class="project">
+    <img src="assets/sample.jpg" alt="Poster project exploring typography and color">
+    <div>
+      <h3>Poster Project</h3>
+      <p>A poster design focusing on typography, color, and composition using Adobe Illustrator and Photoshop.</p>
+      <a href="assets/sample.pdf" target="_blank">View PDF</a>
+    </div>
+  </div>
+
+</section>
+
+<section id="interactive" class="content hidden">
+  <h2>Interactive / Creative Coding</h2>
+
+  <div class="project">
+    <img src="assets/coding_preview.jpg" alt="Screenshot of song search website">
+    <div>
+      <h3>Song Search Engine</h3>
+      <p>A website built to search and play songs using JavaScript, HTML, and CSS.</p>
+      <a href="assets/song_project.pdf" target="_blank">View Project PDF</a>
+    </div>
+  </div>
+
+</section>
+
+<section id="physical" class="content hidden">
+  <h2>3D + Physical Design</h2>
+
+  <div class="project">
+    <img src="assets/lamp.jpg" alt="Custom handmade lamp project">
+    <div>
+      <h3>Handmade Lamp</h3>
+      <p>A lamp designed and built by hand, combining wood and metalwork for a functional art piece.</p>
+      <a href="assets/lamp_project.pdf" target="_blank">View Project PDF</a>
+    </div>
+  </div>
+
+</section>
+
+<!-- SCRIPT -->
+<script src="script.js"></script>
+</body>
+</html>
