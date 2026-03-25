@@ -1,52 +1,98 @@
+/* ------------------ BODY ------------------ */
 body {
   font-family: 'Inter', sans-serif;
   margin: 0;
-  background: #f8f8f8;
   color: #111;
+  background-color: #c1d3b3;
+  overflow-x: hidden;
 }
 
-/* HERO SECTION */
+/* ------------------ HERO SECTION ------------------ */
 .hero {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  gap: 60px;
-  padding: 80px 20px;
+  gap: 20px;
+  padding: 60px 20px 40px 20px;
+  position: relative;
+  background-color: #c1d3b3;
+  z-index: 1;
 }
 
-.hero-text {
-  max-width: 400px;
+/* Triangle pattern only behind hero section */
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 590px; /* full height to nav bar */
+  background-image:
+    linear-gradient(135deg, rgba(163,185,153,0.2) 25%, transparent 25%),
+    linear-gradient(225deg, rgba(192,211,179,0.2) 25%, transparent 25%),
+    linear-gradient(315deg, rgba(150,180,140,0.15) 25%, transparent 25%);
+  background-size: 100px 100px;
+  background-repeat: repeat;
+  z-index: -1;
 }
 
-.hero h1 {
-  font-size: 42px;
-  margin-bottom: 10px;
+.hero-left {
+  flex: 1;
+  max-width: 600px;
+  text-align: left;
 }
 
-.hero h2 {
+.hero-left h1 {
+  font-family: 'Baloo 2', cursive;
+  font-size: 90px;
+  margin: 0;
+  letter-spacing: -7px; /* reduce space between first and last name */
+  color: #3b4a36;
+}
+
+.hero-left .email {
+  font-size: 18px;
   font-weight: 400;
-  color: gray;
+  color: #3b4a36;
+  margin: 5px 0 15px 0;
 }
 
-.hero p {
-  margin-top: 15px;
-  line-height: 1.5;
+.hero-left h2 {
+  font-weight: 400;
+  color: #3b4a36;
+  margin-bottom: 20px;
+  font-size: 22px;
 }
 
-/* HEADSHOT */
-.hero-image img {
-  width: 180px;
-  height: 180px;
+.hero-left p {
+  line-height: 1.6;
+  font-size: 16px;
+  max-width: 600px;
+}
+
+.hero-right {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+}
+
+.hero-right img {
+  width: 220px;
+  height: 220px;
   object-fit: cover;
-  border-radius: 50%;
+  border-radius: 50%; /* circular bubble */
+  border: 3px solid #a3b999;
 }
 
-
-/* NAVIGATION */
+/* ------------------ NAVIGATION ------------------ */
 nav {
-  background: white;
+  background: rgba(255,255,255,0.95);
   border-top: 1px solid #ddd;
   border-bottom: 1px solid #ddd;
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }
 
 nav ul {
@@ -61,15 +107,17 @@ nav ul {
 nav li {
   cursor: pointer;
   position: relative;
+  font-weight: 600;
+  color: #3b4a36;
+  font-size: 18px;
 }
 
-/* hover underline effect */
 nav li::after {
   content: "";
   position: absolute;
   width: 0%;
   height: 2px;
-  background: black;
+  background: #3b4a36;
   left: 0;
   bottom: -5px;
   transition: 0.3s;
@@ -79,28 +127,191 @@ nav li:hover::after {
   width: 100%;
 }
 
+/* ------------------ TAKE A LOOK ------------------ */
+.take-a-look {
+  text-align: center;
+  font-family: 'Baloo 2', cursive;
+  font-size: 22px;
+  color: #3b4a36;
+  margin: 20px 0 40px 0;
+}
 
-/* CONTENT SECTIONS */
+/* ------------------ CONTENT SECTIONS ------------------ */
 .content {
-  padding: 60px;
+  padding: 40px 20px;  /* less than 60px */
+}
+
+.content h2 {
+  font-size: 36px;
+  text-align: center;
+  color: #3b4a36;
+  margin-bottom: 25px; /* tighter */
 }
 
 .hidden {
   display: none;
 }
 
-
-/* PROJECT CARDS */
+/* ------------------ PROJECT CARDS ------------------ */
 .project {
+  background: #ffffff;
+  padding: 15px 20px;   /*  less vertical padding */
+  margin-bottom: 30px;  /*  less space between projects */
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+
   display: flex;
-  gap: 25px;
-  margin-top: 30px;
-  background: white;
-  padding: 20px;
-  border-radius: 12px;
+  flex-direction: column;
+  align-items: center;  /* centers everything */
+  text-align: center;   /* ensures text  centered */
 }
 
-.project img {
-  width: 200px;
-  border-radius: 8px;
+.project h3 {
+  font-size: 26px;
+  color: #3b4a36;
+  margin: 0 0 5px 0;   /* tighter */
+}
+
+.project p {
+  font-size: 15px;
+  line-height: 1.5;
+  margin: 0 0 15px 0;  /* less space */
+  max-width: 550px;
+}
+.project-images {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+/* 🔹 Poster Mailer (side-by-side) */
+.project-images.side-by-side img {
+  width: 300px;       /*  same as your original good size */
+  height: auto;
+}
+
+/* 🔹 Accordion (stacked, no stretching) */
+.project-images.stacked {
+  flex-direction: column;
+  align-items: center;
+}
+
+.project-images.stacked img {
+  width: 300px;
+  height: auto;       /*  prevents stretching */
+}
+
+/* 🔹 Crawfish (same size as one poster image) */
+.project-images.single img {
+  width: 300px;
+  height: auto;
+}
+
+/* shared styling */
+.project-images img {
+  border-radius: 6px;
+  border: 1px solid #a3b999;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  object-fit: contain; /*  prevents distortion */
+}
+
+/* Full-size PDFs without scrolling */
+
+.project iframe {
+  width: 100%;
+  max-width: 900px;
+  height: 1000px;
+  border: 1px solid #a3b999;
+  border-radius: 6px;
+}
+.site-note {
+  margin-top: 40px;
+  font-size: 14px;
+  color: #3b4a36;
+  text-align: center;
+  opacity: 0.8;
+}
+.project-link {
+  display: inline-block;
+  margin-bottom: 15px;
+  font-weight: 600;
+  color: #3b4a36;
+  text-decoration: none;
+  border-bottom: 1px solid #3b4a36;
+  transition: 0.2s;
+}
+
+.project-link:hover {
+  opacity: 0.7;
+}
+/* 2x2 GRID (for spice project) */
+.project-images.grid-2x2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  justify-items: center;
+}
+
+.project-images.grid-2x2 img {
+  width: 100%;
+  max-width: 380px;   /* bigger but controlled */
+  height: auto;
+}
+
+/*  keep your existing styles but adjust sizes slightly */
+
+/* side-by-side (guitar) */
+.project-images.side-by-side img {
+  width: 300px;
+  height: auto;
+}
+
+/* single image */
+.project-images.single img {
+  width: 300px;
+  height: auto;
+}
+.project-images.grid-2x2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;              /* a little more breathing room */
+  max-width: 800px;       /* allows bigger images */
+  margin: 0 auto;         /* centers it */
+}
+
+/* ------------------ RESPONSIVE ------------------ */
+@media (max-width: 900px) {
+  .hero {
+    flex-direction: column;
+    align-items: center;
+  }
+  .hero-left {
+    text-align: center;
+  }
+  .hero-right img {
+    width: 180px;
+    height: 180px;
+  }
+  .project iframe {
+    height: 800px;
+  }
+}
+
+@media (max-width: 500px) {
+  .hero-left h1 {
+    font-size: 60px;
+  }
+  .hero-left h2 {
+    font-size: 18px;
+  }
+  .project h3 {
+    font-size: 24px;
+  }
+  .project p {
+    font-size: 14px;
+  }
+  .project iframe {
+    height: 600px;
+  }
 }
