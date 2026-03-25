@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Madeline Sotirelis | Portfolio</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- HERO SECTION -->
+<header class="hero">
+  <div class="hero-left">
+    <h1>Madeline Sotirelis</h1>
+    <p class="email">mj.sotirelis2@gmail.com</p>
+    <h2>Creative Technology & Design</h2>
+    <p>
+      Howdy! I am a creative technology and design student at CU Boulder exploring graphic design, interactive coding, 3D models, and physical creations. Modeling and prototyping are my favorite parts of the design process, and I love learning new tools and techniques to bring my ideas to life. This portfolio showcases a selection of my work across these areas, demonstrating my passion for blending creativity and technology. Feel free to explore the site to see my projects and get a sense of my design approach!
+    </p>
+  </div>
+
+  <div class="hero-right">
+    <img src="assets/headshot.jpg" alt="Headshot of Madeline Sotirelis">
+  </div>
+</header>
+
+<!-- NAVIGATION -->
+<nav>
+  <ul>
+    <li onclick="showSection('graphic')">Graphic Design</li>
+    <li onclick="showSection('interactive')">Interactive</li>
+    <li onclick="showSection('physical')">3D & Physical Models</li>
+  </ul>
+</nav>
+
+<!-- Take a look indicator -->
+<div class="take-a-look">↑ Take a look! ↑</div>
+
+<!-- SECTIONS -->
+<section id="graphic" class="content hidden">
+  <h2>Graphic Design</h2>
+
+  <!-- Poster Mailer Project -->
+  <div class="project">
+    <h3>Colorado Symphony Poster Mailer</h3>
+    <p>A poster mailer design project made using Adobe Illustrator and Photoshop used to advertise the upcoming Colorado Symphony Orchestra performances. Utilizing color, space, and visual hierarchy to create an engaging design that captures the essence of the orchestra.</p>
+    <div class="project-images side-by-side">
+    <img src="assets/postermailer1.JPEG" alt="postermailer1.JPEG">
+    <img src="assets/postermailer2.JPEG" alt="postermailer2.JPEG">
+  </div>
+</div>
+
+  <!-- Accordion Book Project -->
+  <div class="project">
+    <h3>Song Accordion Booklet</h3>
+    <p>A graphic design project exploring typography, layout, and color to help expand on the story of the song "Instant Crush" by Daft Punk featuring Julian Casablancas. Focusing on typography being an important medium for storytelling.</p>
+    <div class="project-images stacked">
+    <img src="assets/accordian1.JPEG" alt ="accordian1.JPEG">
+    <img src="assets/accordian2.JPEG" alt ="accordian2.JPEG">
+  </div>
+</div>
+
+  <!-- Crawfish Flyer Project -->
+  <div class="project">
+    <h3>Non-Profit Event Flyer</h3>
+    <p>A flyer I designed for a local nonprofit organization. I used Adobe Photoshop to create all the iconography outside of the pre-existing logo for SAFSN. Using vibrant colors and structured hierarchy to create an engaging design that promotes the event.</p>
+    <div class="project-images single">
+    <img src="assets/crawfishSS.JPEG" alt ="crawfishSS.JPEG">
+  </div>
+</div>
+</section>
+
+<section id="interactive" class="content hidden">
+  <h2>Interactive / Creative Coding</h2>
+
+  <!-- SONG FINDER -->
+  <div class="project">
+    <h3>Song Finder Web App</h3>
+    <p>
+      An interactive web app that lets users search for songs using the iTunes API. Results display album art, title, and artist, with a modal view for additional details and audio previews. Built with JavaScript, JSON data handling, and a finite state machine to manage smooth UI interactions.
+    </p>
+
+    <a href="https://msot0.github.io/FinalProject/" target="_blank"  rel="noopener noreferrer">
+      View Live App →
+    </a>
+
+    <div class="project-images side-by-side">
+      <img src="assets/wordsearch.JPEG" alt="Song Finder Web App Screenshot 1">
+      <img src="assets/snippet.JPEG" alt ="Song Finder Web App Screenshot 2">
+    </div>
+  </div>
+
+  <!-- DUEL DASH -->
+  <div class="project">
+    <h3>Duel Dash (p5.js Game)</h3>
+    <p>
+      A fast-paced two-player game built with p5.js where users can select a character and race against each other in a WASD vs IJKL keys setup. The game features simple mechanics, colorful graphics, and a fun competitive element. I implemented a finite state machine to manage game states like start screen, gameplay, and game over, ensuring smooth transitions and an engaging user experience. All iconography, graphics, and animations were created by me using Procreate.
+    </p>
+    <a href="https://editor.p5js.org/mjsoto/full/0mt2qGoYN" target="_blank"  rel="noopener noreferrer">
+      Play Game →
+    </a>
+
+    <div class="project-images side-by-side">
+      <img src="assets/titlescreen.JPEG" alt="Duel Dash Game Screenshot 1">
+      <img src="assets/gameplay.JPEG" alt="Duel Dash Game Screenshot 2">
+    </div>
+  </div>
+
+  <!-- SITE NOTE -->
+  <p class="site-note">
+    This portfolio website was designed and coded by me using HTML, CSS, and JavaScript! c:
+  </p>
+</section>
+
+<section id="physical" class="content hidden">
+  <h2>3D & Physical Models</h2>
+
+  <!-- SPICE BLEND PACK -->
+  <div class="project">
+    <h3>Spice Blend Packaging Concept</h3>
+    <p>
+      A conceptual spice blend package designed and 3D modeled to explore form, branding, and usability. The design focuses on structure, visual identity, and how packaging can enhance user interaction. Blending aesthetics and functionality to create a unique and engaging product concept.
+    </p>
+
+    <div class="project-images grid-2x2">
+      <img src="assets/info1.jpeg" alt="Spice model 1">
+      <img src="assets/info2.jpeg" alt="Spice model 2">
+      <img src="assets/info3.jpeg" alt="Spice model 3">
+      <img src="assets/3dmodel.jpeg" alt="Spice model 4">
+    </div>
+  </div>
+
+  <!-- GUITAR STAND -->
+  <div class="project">
+    <h3>Wooden Guitar Stand</h3>
+    <p>
+      A functional guitar stand designed and built using only 2x2 wood and screws. Created as part of a prototyping project, focusing on stability, simplicity, and efficient material use. Used SketchUp for 3D modeling the stand fully and its parts individually.
+    </p>
+
+    <div class="project-images side-by-side">
+      <img src="assets/model1.jpeg" alt="Guitar stand 3D model">
+      <img src="assets/physical1.jpeg" alt="Physical guitar stand">
+    </div>
+  </div>
+
+  <!-- GO-KART -->
+  <div class="project">
+    <h3>Recycled Go-Kart Concept</h3>
+    <p>
+      A playful go-kart concept inspired by Mario Kart, designed around the idea of using recycled materials such as aluminum cans. Focused on creativity, form, and imaginative vehicle design.
+    </p>
+
+    <div class="project-images side-by-side">
+  <img src="assets/KartPers1.jpg" alt ="Go-Kart concept 1">
+  <img src="assets/KartPers4.jpg" alt ="Go-Kart concept 2">
+    </div>
+</div>
+
+</section>
+
+<script>
+function showSection(sectionId) {
+  // Hide all sections
+  const sections = document.querySelectorAll('.content');
+  sections.forEach(sec => sec.classList.add('hidden'));
+
+  // Show selected section
+  document.getElementById(sectionId).classList.remove('hidden');
+
+  // Hide "take a look" after click
+  document.querySelector('.take-a-look').style.display = 'none';
+}
+</script>
+
+</body>
+</html>
+<!-- Madeline Sotirelis Portfolio Web -->
