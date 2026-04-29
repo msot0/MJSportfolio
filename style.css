@@ -185,13 +185,13 @@ nav li:hover::after {
   margin-top: 10px;
 }
 
-/* 🔹 Poster Mailer (side-by-side) */
+/*  Poster Mailer (side-by-side) */
 .project-images.side-by-side img {
   width: 300px;       /*  same as your original good size */
   height: auto;
 }
 
-/* 🔹 Accordion (stacked, no stretching) */
+/*  Accordion (stacked, no stretching) */
 .project-images.stacked {
   flex-direction: column;
   align-items: center;
@@ -202,7 +202,7 @@ nav li:hover::after {
   height: auto;       /*  prevents stretching */
 }
 
-/* 🔹 Crawfish (same size as one poster image) */
+/*  Crawfish (same size as one poster image) */
 .project-images.single img {
   width: 300px;
   height: auto;
