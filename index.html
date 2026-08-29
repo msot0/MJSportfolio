@@ -106,17 +106,38 @@
 
     <div class="hero-right">
       <div class="photo-orbit">
-        <!--
-          Orbit icons removed for now - swap in your own custom PNGs here.
-          To add one back, drop a file in assets/ and use a block like:
-
-          <div class="orbit-icon oi-1">
-            <img src="assets/your-icon.png" alt="">
-          </div>
-
-          There are 5 position/timing slots ready to use: oi-1 through oi-5
-          (see .orbit-icon.oi-1 etc. in style.css for position + animation delay).
-        -->
+        <!-- small music-themed icons that slowly orbit the headshot -->
+        <div class="orbit-icon oi-1">
+          <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="12" cy="30" r="7" stroke="#1f3a24" stroke-width="2.2"/>
+            <path d="M19 30 V6 L34 3" stroke="#1f3a24" stroke-width="2.2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="orbit-icon oi-2">
+          <svg viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="35" cy="35" r="32" stroke="#e0b84d" stroke-width="2.2"/>
+            <circle cx="35" cy="35" r="20" stroke="#e0b84d" stroke-width="1.4" opacity="0.6"/>
+            <circle cx="35" cy="35" r="4" fill="#e0b84d"/>
+          </svg>
+        </div>
+        <div class="orbit-icon oi-3">
+          <svg viewBox="0 0 60 54" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M4 34 V28 A26 26 0 0 1 56 28 V34" stroke="#517a4c" stroke-width="2.4" stroke-linecap="round"/>
+            <rect x="2" y="32" width="12" height="16" rx="5" stroke="#517a4c" stroke-width="2.4"/>
+            <rect x="46" y="32" width="12" height="16" rx="5" stroke="#517a4c" stroke-width="2.4"/>
+          </svg>
+        </div>
+        <div class="orbit-icon oi-4">
+          <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20 2 L24 16 L38 20 L24 24 L20 38 L16 24 L2 20 L16 16 Z" stroke="#1f3a24" stroke-width="2.2" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="orbit-icon oi-5">
+          <svg viewBox="0 0 140 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M2 20 Q 12 2, 22 20 T 42 20 T 62 20 T 82 20 T 102 20 T 122 20 T 138 20"
+              stroke="#517a4c" stroke-width="2.4" stroke-linecap="round" fill="none"/>
+          </svg>
+        </div>
 
         <div class="photo-frame">
           <img src="assets/headshotFun.jpg" alt="Headshot of Madeline Sotirelis">
@@ -216,7 +237,7 @@
   <div class="project">
     <h3>Radio Rift (Browser Game)</h3>
     <p>
-      A side-scrolling battle game I built in JavaScript and HTML5 Canvas, where you fight your way through rhythm-timed encounters across a series of levels. I used AI tools to help me prototype and debug faster, but the concept, visuals, and level design are all mine.
+      An original side-scrolling battle game I built using JavaScript and HTML5 Canvas, where players fight through rhythm-timed encounters across a series of levels. I focused a lot on level pacing, hit detection, and managing game states as the player moves through the intro, battle, and knockout phases. I used AI tools throughout the process to help me prototype mechanics faster and work through tricky logic, while every creative decision, the concept, the feel, the visuals, and the level design, was mine. This project is a good showcase of my game design skills alongside how I use AI to move faster without losing ownership of the creative direction.
     </p>
 
     <div class="project-images side-by-side">
@@ -247,6 +268,24 @@
     <p>
       A fast-paced two-player game built with p5.js where users can select a character and race against each other in a WASD vs IJKL keys setup. The game features simple mechanics, colorful graphics, and a fun competitive element. I implemented a finite state machine to manage game states like start screen, gameplay, and game over, ensuring smooth transitions and an engaging user experience. All iconography, graphics, and animations were created by me using Procreate.
     </p>
+      A fast-paced two-player game built with p5.js where users can select a character and race against each other in a WASD vs IJKL keys setup. The game features simple mechanics, colorful graphics, and a fun competitive element. I implemented a finite state machine to manage game states like start screen, gameplay, and game over, ensuring smooth transitions and an engaging user experience. All iconography, graphics, and animations were created by me using Procreate.
+    </p>
+
+    <div class="game-embed-wrap">
+      <div class="game-embed-inner" id="game-embed-inner" data-base-width="1000" data-base-height="560">
+        <iframe
+          data-src="game/index.html"
+          title="Duel Dash game"
+          width="1000"
+          height="560"
+          frameborder="0"
+          loading="lazy">
+        </iframe>
+      </div>
+    </div>
+    <a href="game/index.html" target="_blank" rel="noopener noreferrer" class="project-link">
+      Play Fullscreen →
+    </a>
 
     <div class="project-images side-by-side">
       <img src="assets/titlescreen.jpeg" alt="Duel Dash Game Screenshot 1">

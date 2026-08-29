@@ -82,7 +82,6 @@ function resizeGameEmbeds() {
     const wrap = inner.parentElement;
     const containerWidth = wrap.clientWidth;
     if (!containerWidth) return; // not visible yet - the ResizeObserver below will catch it once it is
-
     const scale = Math.min(1, containerWidth / baseWidth);
 
     frame.style.width = baseWidth + "px";
@@ -105,7 +104,6 @@ if (window.ResizeObserver) {
   const gameResizeObserver = new ResizeObserver(() => resizeGameEmbeds());
   document.querySelectorAll(".game-embed-wrap").forEach(wrap => gameResizeObserver.observe(wrap));
 }
-
 // ---------- EVENT PHOTO CAROUSEL ----------
 // Click arrows on desktop; swipe on mobile (native scroll-snap handles touch).
 const carouselTrack = document.getElementById("carousel-track");
