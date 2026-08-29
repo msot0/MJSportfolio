@@ -6,42 +6,143 @@
   <title>Madeline Sotirelis | Portfolio</title>
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Fraunces:ital,wght@0,600;0,900;1,600&family=Space+Grotesk:wght@400;500;600;700&family=Syne:wght@700;800&family=Unbounded:wght@500;700;800&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+<!-- DECORATIVE DOODLE LAYER (parallax on scroll) -->
+<div class="doodles" aria-hidden="true">
+
+  <!-- stars -->
+  <svg class="doodle d-star1" data-speed="0.25" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M20 2 L24 16 L38 20 L24 24 L20 38 L16 24 L2 20 L16 16 Z" stroke="#1f3a24" stroke-width="2" stroke-linejoin="round"/>
+  </svg>
+  <svg class="doodle d-star2" data-speed="0.4" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M20 2 L24 16 L38 20 L24 24 L20 38 L16 24 L2 20 L16 16 Z" stroke="#e0b84d" stroke-width="2" stroke-linejoin="round"/>
+  </svg>
+  <svg class="doodle d-star3" data-speed="0.15" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M20 2 L24 16 L38 20 L24 24 L20 38 L16 24 L2 20 L16 16 Z" stroke="#517a4c" stroke-width="2" stroke-linejoin="round"/>
+  </svg>
+  <svg class="doodle d-star4" data-speed="0.3" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M20 2 L24 16 L38 20 L24 24 L20 38 L16 24 L2 20 L16 16 Z" stroke="#1f3a24" stroke-width="2" stroke-linejoin="round"/>
+  </svg>
+
+  <!-- music notes -->
+  <svg class="doodle d-note1" data-speed="0.2" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="14" cy="46" r="8" stroke="#1f3a24" stroke-width="2.2"/>
+    <path d="M22 46 V10 L46 4 V38" stroke="#1f3a24" stroke-width="2.2" stroke-linecap="round"/>
+    <circle cx="38" cy="38" r="8" stroke="#1f3a24" stroke-width="2.2"/>
+  </svg>
+  <svg class="doodle d-note2" data-speed="0.35" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="12" cy="30" r="7" stroke="#e0b84d" stroke-width="2.2"/>
+    <path d="M19 30 V6 L34 3" stroke="#e0b84d" stroke-width="2.2" stroke-linecap="round"/>
+  </svg>
+  <svg class="doodle d-note3" data-speed="0.22" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="12" cy="38" r="8" stroke="#517a4c" stroke-width="2.2"/>
+    <path d="M20 38 V8 L38 4 V32" stroke="#517a4c" stroke-width="2.2" stroke-linecap="round"/>
+    <circle cx="30" cy="32" r="8" stroke="#517a4c" stroke-width="2.2"/>
+  </svg>
+
+  <!-- sound waves -->
+  <svg class="doodle d-wave1" data-speed="0.1" viewBox="0 0 140 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M2 20 Q 12 2, 22 20 T 42 20 T 62 20 T 82 20 T 102 20 T 122 20 T 138 20"
+      stroke="#1f3a24" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+  </svg>
+  <svg class="doodle d-wave2" data-speed="0.18" viewBox="0 0 160 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M2 20 Q 12 38, 22 20 T 42 20 T 62 20 T 82 20 T 102 20 T 122 20 T 142 20 T 158 20"
+      stroke="#e0b84d" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+  </svg>
+
+  <!-- bass guitar (she plays bass!) -->
+  <svg class="doodle d-bass" data-speed="0.28" viewBox="0 0 40 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M9 58 C 2 53, 2 40, 10 35 C 4 28, 5 19, 13 16 C 21 19, 22 28, 16 35 C 24 40, 24 53, 17 58 C 14 61, 12 61, 9 58 Z"
+      stroke="#517a4c" stroke-width="2.8" stroke-linejoin="round" stroke-linecap="round"/>
+    <line x1="13" y1="16" x2="13" y2="4" stroke="#517a4c" stroke-width="2.8" stroke-linecap="round"/>
+    <rect x="8" y="0" width="10" height="6" rx="1.5" stroke="#517a4c" stroke-width="2.5"/>
+  </svg>
+  <svg class="doodle d-squig2" data-speed="0.32" viewBox="0 0 110 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M2 12 Q 15 22, 27 12 T 52 12 T 77 12 T 98 12 T 108 12" stroke="#1f3a24" stroke-width="2.4" stroke-linecap="round" fill="none"/>
+  </svg>
+
+  <!-- vinyl record -->
+  <svg class="doodle d-vinyl" data-speed="0.12" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="35" cy="35" r="32" stroke="#1f3a24" stroke-width="2.2"/>
+    <circle cx="35" cy="35" r="22" stroke="#1f3a24" stroke-width="1.4" opacity="0.6"/>
+    <circle cx="35" cy="35" r="14" stroke="#1f3a24" stroke-width="1.4" opacity="0.6"/>
+    <circle cx="35" cy="35" r="4" fill="#e0b84d"/>
+  </svg>
+
+  <!-- headphones -->
+  <svg class="doodle d-headph" data-speed="0.2" viewBox="0 0 60 54" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M4 34 V28 A26 26 0 0 1 56 28 V34" stroke="#517a4c" stroke-width="2.2" stroke-linecap="round"/>
+    <rect x="2" y="32" width="12" height="16" rx="5" stroke="#517a4c" stroke-width="2.2"/>
+    <rect x="46" y="32" width="12" height="16" rx="5" stroke="#517a4c" stroke-width="2.2"/>
+  </svg>
+
+</div>
+
 <!-- HERO SECTION -->
 <header class="hero">
-  <div class="hero-left">
-    <h1>Madeline Sotirelis</h1>
-    <p class="email">mj.sotirelis2@gmail.com</p>
-    <h2>Creative Technology & Design</h2>
-    <p>
-      Howdy! I am a creative technology and design student at CU Boulder exploring graphic design, interactive coding, 3D models, and physical creations. Modeling and prototyping are my favorite parts of the design process, and I love learning new tools and techniques to bring my ideas to life. This portfolio showcases a selection of my work across these areas, demonstrating my passion for blending creativity and technology. Feel free to explore the site to see my projects and get a sense of my design approach!
-    </p>
-  </div>
+  <div class="hero-inner">
+    <div class="hero-left">
+      <span class="eyebrow">Howdy, I'm</span>
+      <h1>Madeline<span class="last">Sotirelis</span></h1>
+      <p class="email"><a href="mailto:mj.sotirelis2@gmail.com">mj.sotirelis2@gmail.com</a></p>
+      <h2>Creative Technology &amp; Design</h2>
+      <p>
+        I'm a Creative Technology &amp; Design student at CU Boulder, exploring graphic design, interactive coding, 3D modeling, and physical prototyping. Ideation and prototyping are my strong suits. I like being able to fully understand a problem and explore a variety of creative ways to solve it, in ways that leave a client happy and intrigue others. I'm especially drawn to developmental toy design, and I'm working toward a career where I can combine hands-on fabrication with playful, human-centered thinking.
+      </p>
+      <p>
+        I'm proficient in Figma, the Adobe Suite, SketchUp, and HTML/CSS/JavaScript, and I love the process of bringing an idea to life, whether that's through a sketch, a prototype, or a working interface. Outside of school, I also do audio design, mixing, and mastering for my job, so sound and music are a big part of how I think about creative work too.
+      </p>
+      <p class="hero-signoff">
+        I hope you enjoy looking through my work, and feel free to reach out with any questions or project ideas!
+      </p>
+    </div>
 
-  <div class="hero-right">
-    <img src="assets/headshot.jpg" alt="Headshot of Madeline Sotirelis">
+    <div class="hero-right">
+      <div class="photo-orbit">
+        <!--
+          Orbit icons removed for now - swap in your own custom PNGs here.
+          To add one back, drop a file in assets/ and use a block like:
+
+          <div class="orbit-icon oi-1">
+            <img src="assets/your-icon.png" alt="">
+          </div>
+
+          There are 5 position/timing slots ready to use: oi-1 through oi-5
+          (see .orbit-icon.oi-1 etc. in style.css for position + animation delay).
+        -->
+
+        <div class="photo-frame">
+          <img src="assets/headshotFun.jpg" alt="Headshot of Madeline Sotirelis">
+        </div>
+      </div>
+    </div>
   </div>
 </header>
+
+<!-- Take a look indicator -->
+<div class="take-a-look">↓ take a look ↓</div>
 
 <!-- NAVIGATION -->
 <nav>
   <ul>
-    <li onclick="showSection('graphic')">Graphic Design</li>
-    <li onclick="showSection('interactive')">Interactive</li>
-    <li onclick="showSection('physical')">3D & Physical Models</li>
+    <li onclick="showSection('graphic', this)" class="active">Graphic Design</li>
+    <li onclick="showSection('interactive', this)">Interactive</li>
+    <li onclick="showSection('physical', this)">3D &amp; Physical Models</li>
   </ul>
 </nav>
 
-<!-- Take a look indicator -->
-<div class="take-a-look">↑ Take a look! ↑</div>
+<!-- Persistent contact button, always accessible top-right -->
+<button class="contact-fab" onclick="showSection('contact')">Contact</button>
 
 <!-- SECTIONS -->
-<section id="graphic" class="content hidden">
+<section id="graphic" class="content">
   <h2>Graphic Design</h2>
 
   <!-- Poster Mailer Project -->
@@ -49,29 +150,29 @@
     <h3>Colorado Symphony Poster Mailer</h3>
     <p>A poster mailer design project made using Adobe Illustrator and Photoshop used to advertise the upcoming Colorado Symphony Orchestra performances. Utilizing color, space, and visual hierarchy to create an engaging design that captures the essence of the orchestra.</p>
     <div class="project-images side-by-side">
-    <img src="assets/postermailer1.jpeg" alt="postermailer1.jpeg">
-    <img src="assets/postermailer2.jpeg" alt="postermailer2.jpeg">
+      <img src="assets/postermailer1.jpeg" alt="postermailer1.jpeg">
+      <img src="assets/postermailer2.jpeg" alt="postermailer2.jpeg">
+    </div>
   </div>
-</div>
 
   <!-- Accordion Book Project -->
   <div class="project">
     <h3>Song Accordion Booklet</h3>
     <p>A graphic design project exploring typography, layout, and color to help expand on the story of the song "Instant Crush" by Daft Punk featuring Julian Casablancas. Focusing on typography being an important medium for storytelling.</p>
     <div class="project-images stacked">
-    <img src="assets/accordian1.jpeg" alt ="accordian1.jpeg">
-    <img src="assets/accordian2.jpeg" alt ="accordian2.jpeg">
+      <img src="assets/accordian1.jpeg" alt="accordian1.jpeg">
+      <img src="assets/accordian2.jpeg" alt="accordian2.jpeg">
+    </div>
   </div>
-</div>
 
   <!-- Crawfish Flyer Project -->
   <div class="project">
     <h3>Non-Profit Event Flyer</h3>
     <p>A flyer I designed for a local nonprofit organization. I used Adobe Photoshop to create all the iconography outside of the pre-existing logo for SAFSN. Using vibrant colors and structured hierarchy to create an engaging design that promotes the event.</p>
     <div class="project-images single">
-    <img src="assets/crawfishSS.jpeg" alt ="crawfishSS.jpeg">
+      <img src="assets/crawfishSS.jpeg" alt="crawfishSS.jpeg">
+    </div>
   </div>
-</div>
 </section>
 
 <section id="interactive" class="content hidden">
@@ -84,32 +185,61 @@
       An interactive web app that lets users search for songs using the iTunes API. Results display album art, title, and artist, with a modal view for additional details and audio previews. Built with JavaScript, JSON data handling, and a finite state machine to manage smooth UI interactions. Helps users discover music in a fun and engaging way, showcasing my skills in web development and interactive design.
     </p>
 
-    <a href="https://msot0.github.io/FinalProject/" target="_blank"  rel="noopener noreferrer">
+    <a href="https://msot0.github.io/FinalProject/" target="_blank" rel="noopener noreferrer" class="project-link">
       View Live App →
     </a>
 
     <div class="project-images side-by-side">
       <img src="assets/wordsearch.jpeg" alt="Song Finder Web App Screenshot 1">
-      <img src="assets/snippet.jpeg" alt ="Song Finder Web App Screenshot 2">
+      <img src="assets/snippet.jpeg" alt="Song Finder Web App Screenshot 2">
     </div>
   </div>
 
   <!-- BEE BOMB WEBSITE -->
-<div class="project">
-  <h3>Bee Bomb Honey Website</h3>
-  <p>
-    A fully designed and developed website for a local honey company, focused on clean branding, product presentation, and user experience. Built and deployed using modern web tools, with attention to layout, typography, and responsive design to create a polished, professional storefront. Intended to help outreach, to inform possible customers and promote the company's products.
-  </p>
+  <div class="project">
+    <h3>Bee Bomb Honey Website</h3>
+    <p>
+      A fully designed and developed website for a local honey company, focused on clean branding, product presentation, and user experience. Built and deployed using modern web tools, with attention to layout, typography, and responsive design to create a polished, professional storefront. Intended to help outreach, to inform possible customers and promote the company's products.
+    </p>
 
-  <a href="https://bee-bomb-website.vercel.app" target="_blank" rel="noopener noreferrer" class="project-link">
-    View Live Site →
-  </a>
+    <a href="https://bee-bomb-website.vercel.app" target="_blank" rel="noopener noreferrer" class="project-link">
+      View Live Site →
+    </a>
 
-  <div class="project-images side-by-side">
-    <img src="assets/beebomb1.jpeg" alt="Bee Bomb Website Homepage">
-    <img src="assets/beebomb2.jpeg" alt="Bee Bomb Website Products Page">
+    <div class="project-images side-by-side">
+      <img src="assets/beebomb1.jpeg" alt="Bee Bomb Website Homepage">
+      <img src="assets/beebomb2.jpeg" alt="Bee Bomb Website Products Page">
+    </div>
   </div>
-</div>
+
+  <!-- RADIO RIFT -->
+  <div class="project">
+    <h3>Radio Rift (Browser Game)</h3>
+    <p>
+      A side-scrolling battle game I built in JavaScript and HTML5 Canvas, where you fight your way through rhythm-timed encounters across a series of levels. I used AI tools to help me prototype and debug faster, but the concept, visuals, and level design are all mine.
+    </p>
+
+    <div class="project-images side-by-side">
+      <img src="assets/radiorift2.jpg" alt="Radio Rift overworld screenshot">
+      <img src="assets/radiorift1.jpg" alt="Radio Rift battle screenshot">
+    </div>
+
+    <div class="game-embed-wrap">
+      <div class="game-embed-inner" id="radiorift-embed-inner" data-base-width="800" data-base-height="620">
+        <iframe
+          data-src="radiorift/index.html?embed=1"
+          title="Radio Rift game"
+          width="800"
+          height="620"
+          frameborder="0"
+          loading="lazy">
+        </iframe>
+      </div>
+    </div>
+    <a href="radiorift/index.html" target="_blank" rel="noopener noreferrer" class="project-link">
+      Play Fullscreen →
+    </a>
+  </div>
 
   <!-- DUEL DASH -->
   <div class="project">
@@ -117,14 +247,27 @@
     <p>
       A fast-paced two-player game built with p5.js where users can select a character and race against each other in a WASD vs IJKL keys setup. The game features simple mechanics, colorful graphics, and a fun competitive element. I implemented a finite state machine to manage game states like start screen, gameplay, and game over, ensuring smooth transitions and an engaging user experience. All iconography, graphics, and animations were created by me using Procreate.
     </p>
-    <a href="https://editor.p5js.org/mjsoto/full/0mt2qGoYN" target="_blank"  rel="noopener noreferrer">
-      Play Game →
-    </a>
 
     <div class="project-images side-by-side">
       <img src="assets/titlescreen.jpeg" alt="Duel Dash Game Screenshot 1">
       <img src="assets/gameplay.jpeg" alt="Duel Dash Game Screenshot 2">
     </div>
+
+    <div class="game-embed-wrap">
+      <div class="game-embed-inner" id="game-embed-inner" data-base-width="1000" data-base-height="560">
+        <iframe
+          data-src="game/index.html"
+          title="Duel Dash game"
+          width="1000"
+          height="560"
+          frameborder="0"
+          loading="lazy">
+        </iframe>
+      </div>
+    </div>
+    <a href="game/index.html" target="_blank" rel="noopener noreferrer" class="project-link">
+      Play Fullscreen →
+    </a>
   </div>
 
   <!-- SITE NOTE -->
@@ -134,7 +277,35 @@
 </section>
 
 <section id="physical" class="content hidden">
-  <h2>3D & Physical Models</h2>
+  <h2>3D &amp; Physical Models</h2>
+
+  <!-- LASER CUT LAMP -->
+  <div class="project">
+    <h3>Laser Cut Acrylic Lamp</h3>
+    <p>
+      A geometric lamp I designed in SketchUp and laser cut from acrylic sheets. I designed the panels to slot together without any adhesive, so the joinery itself becomes part of the look. Since the panels are clear acrylic, the light passes through and reflects off all the angled surfaces, which was the main effect I was going for.
+    </p>
+
+    <div class="project-images grid-2x2">
+      <img src="assets/lamp_34angle.jpg" alt="Lamp 3D model, 3/4 angle">
+      <img src="assets/lamp_wormseye.jpg" alt="Lamp 3D model, worm's eye view">
+      <img src="assets/lamp_photo1.jpg" alt="Finished acrylic lamp, photo 1">
+      <img src="assets/lamp_photo2.jpg" alt="Finished acrylic lamp, photo 2">
+    </div>
+  </div>
+
+  <!-- SPICE RACK (BUILT) -->
+  <div class="project">
+    <h3>Built Spice Rack</h3>
+    <p>
+      A wooden spice rack I designed and built to fit a specific gap in my kitchen cabinets. My design changed a bit partway through the build as I adjusted the shelf heights and added the center divider, so the final piece is a little different from where I started, but that's part of the process. I like how it turned out and it fits exactly where I needed it to.
+    </p>
+
+    <div class="project-images side-by-side">
+      <img src="assets/spicerack_shell.jpg" alt="Spice rack shell, primed and unpainted">
+      <img src="assets/spicerack_finished.jpg" alt="Finished spice rack in kitchen">
+    </div>
+  </div>
 
   <!-- SPICE BLEND PACK -->
   <div class="project">
@@ -172,26 +343,56 @@
     </p>
 
     <div class="project-images side-by-side">
-  <img src="assets/KartPers1.jpg" alt ="Go-Kart concept 1">
-  <img src="assets/KartPers4.jpg" alt ="Go-Kart concept 2">
+      <img src="assets/KartPers1.jpg" alt="Go-Kart concept 1">
+      <img src="assets/KartPers4.jpg" alt="Go-Kart concept 2">
     </div>
-</div>
+  </div>
 
 </section>
 
-<script>
-function showSection(sectionId) {
-  // Hide all sections
-  const sections = document.querySelectorAll('.content');
-  sections.forEach(sec => sec.classList.add('hidden'));
+<section id="contact" class="content hidden">
+  <h2>Contact</h2>
 
-  // Show selected section
-  document.getElementById(sectionId).classList.remove('hidden');
+  <div class="contact-wrap">
+    <div class="contact-info">
+      <p class="contact-blurb">
+        Outside of my design and tech work, I freelance as a party and event designer, making custom napkins, koozies, banners, stickers, and other personalized decor pieces. I love turning a client's vision into fun, custom details that make their event feel special. Reach out if you want to collaborate on a project, chat about design work, or get some custom pieces made for your next event!
+      </p>
+      <div class="contact-links">
+        <a href="mailto:mj.sotirelis2@gmail.com" class="project-link">✉ mj.sotirelis2@gmail.com</a>
+        <a href="https://www.linkedin.com/in/madeline-sotirelis-631549330" target="_blank" rel="noopener noreferrer" class="project-link">in LinkedIn</a>
+      </div>
+    </div>
 
-  // Hide "take a look" after click
-  document.querySelector('.take-a-look').style.display = 'none';
-}
-</script>
+    <!-- Event decor photo carousel: swipe on mobile, arrows on desktop.
+         Replace the placeholder slides below with real <img> tags once
+         you have photos — just swap the .carousel-slide contents. -->
+    <div class="carousel" id="event-carousel">
+      <button class="carousel-arrow prev" onclick="carouselMove(-1)" aria-label="Previous photo">‹</button>
+
+      <div class="carousel-track" id="carousel-track">
+        <div class="carousel-slide placeholder">
+          <span>📸</span>
+          <p>Event decor photo coming soon</p>
+        </div>
+        <div class="carousel-slide placeholder">
+          <span>🌿</span>
+          <p>Event decor photo coming soon</p>
+        </div>
+        <div class="carousel-slide placeholder">
+          <span>🎉</span>
+          <p>Event decor photo coming soon</p>
+        </div>
+      </div>
+
+      <button class="carousel-arrow next" onclick="carouselMove(1)" aria-label="Next photo">›</button>
+    </div>
+  </div>
+</section>
+
+<footer>made with love (and a lot of green) — Madeline Sotirelis © 2026</footer>
+
+<script src="script.js"></script>
 
 </body>
 </html>
