@@ -103,10 +103,16 @@ body {
 .hero-left {
   flex: 1;
   min-width: 300px;
+.hero-left {
+  flex: 1;
+  min-width: 300px;
   max-width: 100%;
 }
 
 .eyebrow {
+  font-family: var(--font-display);
+  font-style: normal;
+  font-weight: 600;
   font-family: var(--font-display);
   font-style: normal;
   font-weight: 600;
@@ -172,7 +178,6 @@ body {
   max-width: 560px;
   color: var(--ink);
 }
-
 .hero-left p.hero-signoff {
   font-family: var(--font-hand);
   font-size: 21px;
@@ -186,10 +191,20 @@ body {
   margin-top: 130px;
 }
 
-.photo-frame {
+.photo-orbit {
   position: relative;
+  width: 400px;
+  height: 400px;
+}
+
+.photo-frame {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   width: 340px;
   height: 340px;
+  z-index: 2;
 }
 
 .photo-frame::before {
@@ -209,6 +224,7 @@ body {
 @media (prefers-reduced-motion: reduce) {
   .photo-frame::before { animation: none; }
 }
+}
 
 .hero-right img {
   width: 340px;
@@ -219,6 +235,46 @@ body {
   box-shadow: 8px 10px 0 var(--gold);
   position: relative;
   z-index: 1;
+}
+
+/* orbiting music-themed icons circling the headshot */
+.orbit-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  z-index: 3;
+  animation: orbit 22s linear infinite;
+}
+
+.orbit-icon svg,
+.orbit-icon img {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  filter: drop-shadow(1px 2px 0 var(--cream));
+}
+
+.orbit-icon.oi-1 svg, .orbit-icon.oi-1 img { width: 34px; }
+.orbit-icon.oi-2 svg, .orbit-icon.oi-2 img { width: 26px; }
+.orbit-icon.oi-3 svg, .orbit-icon.oi-3 img { width: 40px; }
+.orbit-icon.oi-4 svg, .orbit-icon.oi-4 img { width: 26px; }
+.orbit-icon.oi-5 svg, .orbit-icon.oi-5 img { width: 60px; }
+
+@keyframes orbit {
+  from { transform: rotate(0deg) translateX(220px) rotate(0deg); }
+  to   { transform: rotate(360deg) translateX(220px) rotate(-360deg); }
+}
+
+.orbit-icon.oi-1 { animation-delay: 0s; }
+.orbit-icon.oi-2 { animation-delay: -4.4s; }
+.orbit-icon.oi-3 { animation-delay: -8.8s; }
+.orbit-icon.oi-4 { animation-delay: -13.2s; }
+.orbit-icon.oi-5 { animation-delay: -17.6s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .orbit-icon { animation: none; }
+}
 }
 
 /* ------------------ NAVIGATION ------------------ */
@@ -341,9 +397,16 @@ nav li.contact-tab.active {
 
 /* ------------------ PROJECT CARDS ------------------ */
 .project {
-  padding: 48px 10px;
-  margin-bottom: 0;
-  border-bottom: 1.5px dashed var(--sage);
+.project {
+  background: var(--cream);
+  padding: 28px 30px;
+  margin-bottom: 36px;
+  border-radius: 14px;
+  border: 2px solid var(--forest);
+  box-shadow: 6px 6px 0 var(--sage);
+  display: flex;
+  flex-direction: column;
+}
 
   display: flex;
   flex-direction: column;
@@ -351,21 +414,15 @@ nav li.contact-tab.active {
   text-align: center;
 
   opacity: 0;
-  transform: translateY(36px);
-  transition: opacity 0.7s cubic-bezier(0.2, 0.7, 0.3, 1), transform 0.7s cubic-bezier(0.2, 0.7, 0.3, 1);
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
 }
-
-.project:last-child {
-  border-bottom: none;
-}
-
 .project.in-view {
   opacity: 1;
   transform: translateY(0);
 }
 
-/* Stagger children so a project doesn't pop in as one flat block -
-   heading first, then text, then images trail in slightly after. */
 .project > * {
   opacity: 0;
   transform: translateY(18px);
@@ -378,8 +435,15 @@ nav li.contact-tab.active {
 .project.in-view > *:nth-child(4) { transition-delay: 0.24s; }
 .project.in-view > *:nth-child(5) { transition-delay: 0.32s; }
 
+.project:hover {
+  box-shadow: 9px 9px 0 var(--gold);
+  transform: translateY(-4px);
+}
+.project.in-view:hover { transform: translateY(-4px); }
+
 @media (prefers-reduced-motion: reduce) {
   .project, .project > * { transition: none; }
+}
 }
 .project.in-view:hover { transform: translateY(-4px); }
 
@@ -408,15 +472,15 @@ nav li.contact-tab.active {
   flex-wrap: wrap;
 }
 
-.project-images.side-by-side img { width: 300px; height: auto; }
+.project-images.side-by-side img { width: 300px; height: 225px; }
 
 .project-images.stacked {
   flex-direction: column;
   align-items: center;
 }
-.project-images.stacked img { width: 300px; height: auto; }
+.project-images.stacked img { width: 300px; height: 225px; }
 
-.project-images.single img { width: 300px; height: auto; }
+.project-images.single img { width: 300px; height: 225px; }
 
 .project-images img {
   border-radius: 8px;
@@ -638,18 +702,26 @@ footer {
   .hero-left { text-align: center; min-width: 0; width: 100%; }
   .hero-left p { margin: 0 auto; }
   .hero-right { margin-top: 20px; }
+  .photo-orbit { width: 300px; height: 300px; }
   .photo-frame { width: 250px; height: 250px; }
   .hero-right img { width: 250px; height: 250px; }
   .project iframe { height: 800px; }
   .project { padding: 22px 18px; }
   nav li { padding: 10px 16px; }
   .contact-wrap { flex-direction: column; align-items: stretch; }
+  @keyframes orbit {
+    from { transform: rotate(0deg) translateX(160px) rotate(0deg); }
+    to   { transform: rotate(360deg) translateX(160px) rotate(-360deg); }
+  }
   .contact-info,
   .carousel {
     min-width: 0;
     max-width: 100%;
     width: 100%;
   }
+  .project iframe { height: 800px; }
+  .project { padding: 22px 18px; }
+  nav li { padding: 10px 16px; }
 }
 
 @media (max-width: 500px) {
@@ -657,8 +729,14 @@ footer {
   .hero-left h1 { font-size: 44px; }
   .hero-left h2 { font-size: 15px; padding: 5px 12px; }
   .hero-left p { font-size: 15px; }
+  .photo-orbit { width: 220px; height: 220px; }
   .photo-frame { width: 180px; height: 180px; }
   .hero-right img { width: 180px; height: 180px; }
+  .orbit-icon.oi-5 svg, .orbit-icon.oi-5 img { width: 40px; }
+  @keyframes orbit {
+    from { transform: rotate(0deg) translateX(115px) rotate(0deg); }
+    to   { transform: rotate(360deg) translateX(115px) rotate(-360deg); }
+  }
   .project h3 { font-size: 21px; }
   .project p { font-size: 14.5px; line-height: 1.55; }
   .project iframe { height: 600px; }
@@ -674,6 +752,9 @@ footer {
   }
   .project-images.side-by-side img,
   .project-images.stacked img,
+  .project-images.single img {
+    width: 100%;
+    max-width: 320px;
   .project-images.single img {
     width: 100%;
     max-width: 320px;
