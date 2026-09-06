@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Radio Rift</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body {
+      width: 100%;
+      height: 100%;
+      background: #000;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      font-family: 'Space Grotesk', Arial, sans-serif;
+    }
+    canvas {
+      display: block;
+      border: 3px solid #333;
+      cursor: pointer;
+      image-rendering: pixelated;
+      max-width: 100%;
+      height: auto;
+    }
+
+    /* ---------- TOUCH CONTROLS ---------- */
+    .touch-controls {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 800px;
+      max-width: 100%;
+      padding: 12px 16px;
+      box-sizing: border-box;
+      gap: 16px;
+    }
+    .touch-controls button {
+      touch-action: none;
+      user-select: none;
+      -webkit-user-select: none;
+      border: 2px solid #666;
+      background: #181818;
+      color: #fff;
+      border-radius: 10px;
+      font-size: 15px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+    .touch-controls button:active,
+    .touch-controls button.pressed {
+      background: #e0b84d;
+      color: #111;
+      border-color: #e0b84d;
+    }
+
+    .dpad {
+      display: grid;
+      grid-template-columns: 46px 46px 46px;
+      grid-template-rows: 46px 46px;
+      gap: 4px;
+    }
+    .dpad button[data-key="ArrowLeft"]  { grid-column: 1; grid-row: 2; }
+    .dpad button[data-key="ArrowRight"] { grid-column: 3; grid-row: 2; }
+    .dpad button[data-key="ArrowUp"]    { grid-column: 2; grid-row: 1; grid-row-end: span 2; }
+    .dpad button[data-key="ArrowDown"]  { grid-column: 2; grid-row: 2; display:none; } /* crouch rarely needed on mobile */
+
+    .actions {
+      display: flex;
+      gap: 10px;
+    }
+    .actions button {
+      width: 74px;
+      height: 46px;
+      font-size: 13px;
+      border-radius: 999px;
+    }
+
+    @media (max-width: 640px) {
+      .touch-controls { flex-direction: column; gap: 10px; }
+    }
+  </style>
+</head>
+<body>
+  <canvas id="gameCanvas" width="800" height="500"></canvas>
+
+  <!-- On-screen touch controls mirroring Arrow keys / Space / Z,
+       so the game is playable on phones and tablets without a keyboard -->
+  <div class="touch-controls" id="touch-controls">
+    <div class="dpad">
+      <button data-key="ArrowLeft">◀</button>
+      <button data-key="ArrowUp">▲ Jump</button>
+      <button data-key="ArrowRight">▶</button>
+    </div>
+    <div class="actions">
+      <button data-key=" ">Shoot</button>
+      <button data-key="z">Z</button>
+    </div>
+  </div>
+
+  <script src="game.js"></script>
+  <script src="touch-controls.js"></script>
+</body>
+</html>
