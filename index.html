@@ -8,7 +8,7 @@
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Fraunces:ital,wght@0,600;0,900;1,600&family=Space+Grotesk:wght@400;500;600;700&family=Syne:wght@700;800&family=Unbounded:wght@500;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Unbounded:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="style.css">
 </head>
@@ -16,81 +16,48 @@
 
 <!-- DECORATIVE DOODLE LAYER (parallax on scroll) -->
 <div class="doodles" aria-hidden="true">
-
-  <!-- stars -->
-  <svg class="doodle d-star1" data-speed="0.25" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M20 2 L24 16 L38 20 L24 24 L20 38 L16 24 L2 20 L16 16 Z" stroke="#1f3a24" stroke-width="2" stroke-linejoin="round"/>
-  </svg>
-  <svg class="doodle d-star2" data-speed="0.4" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M20 2 L24 16 L38 20 L24 24 L20 38 L16 24 L2 20 L16 16 Z" stroke="#e0b84d" stroke-width="2" stroke-linejoin="round"/>
-  </svg>
-  <svg class="doodle d-star3" data-speed="0.15" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M20 2 L24 16 L38 20 L24 24 L20 38 L16 24 L2 20 L16 16 Z" stroke="#517a4c" stroke-width="2" stroke-linejoin="round"/>
-  </svg>
-  <svg class="doodle d-star4" data-speed="0.3" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M20 2 L24 16 L38 20 L24 24 L20 38 L16 24 L2 20 L16 16 Z" stroke="#1f3a24" stroke-width="2" stroke-linejoin="round"/>
-  </svg>
-
-  <!-- music notes -->
-  <svg class="doodle d-note1" data-speed="0.2" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <circle cx="14" cy="46" r="8" stroke="#1f3a24" stroke-width="2.2"/>
-    <path d="M22 46 V10 L46 4 V38" stroke="#1f3a24" stroke-width="2.2" stroke-linecap="round"/>
-    <circle cx="38" cy="38" r="8" stroke="#1f3a24" stroke-width="2.2"/>
-  </svg>
-  <svg class="doodle d-note2" data-speed="0.35" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <circle cx="12" cy="30" r="7" stroke="#e0b84d" stroke-width="2.2"/>
-    <path d="M19 30 V6 L34 3" stroke="#e0b84d" stroke-width="2.2" stroke-linecap="round"/>
-  </svg>
-  <svg class="doodle d-note3" data-speed="0.22" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <circle cx="12" cy="38" r="8" stroke="#517a4c" stroke-width="2.2"/>
-    <path d="M20 38 V8 L38 4 V32" stroke="#517a4c" stroke-width="2.2" stroke-linecap="round"/>
-    <circle cx="30" cy="32" r="8" stroke="#517a4c" stroke-width="2.2"/>
-  </svg>
-
-  <!-- sound waves -->
-  <svg class="doodle d-wave1" data-speed="0.1" viewBox="0 0 140 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M2 20 Q 12 2, 22 20 T 42 20 T 62 20 T 82 20 T 102 20 T 122 20 T 138 20"
-      stroke="#1f3a24" stroke-width="2.2" stroke-linecap="round" fill="none"/>
-  </svg>
-  <svg class="doodle d-wave2" data-speed="0.18" viewBox="0 0 160 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M2 20 Q 12 38, 22 20 T 42 20 T 62 20 T 82 20 T 102 20 T 122 20 T 142 20 T 158 20"
-      stroke="#e0b84d" stroke-width="2.2" stroke-linecap="round" fill="none"/>
-  </svg>
-
-  <!-- bass guitar (she plays bass!) -->
-  <svg class="doodle d-bass" data-speed="0.28" viewBox="0 0 40 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M9 58 C 2 53, 2 40, 10 35 C 4 28, 5 19, 13 16 C 21 19, 22 28, 16 35 C 24 40, 24 53, 17 58 C 14 61, 12 61, 9 58 Z"
-      stroke="#517a4c" stroke-width="2.8" stroke-linejoin="round" stroke-linecap="round"/>
-    <line x1="13" y1="16" x2="13" y2="4" stroke="#517a4c" stroke-width="2.8" stroke-linecap="round"/>
-    <rect x="8" y="0" width="10" height="6" rx="1.5" stroke="#517a4c" stroke-width="2.5"/>
-  </svg>
-  <svg class="doodle d-squig2" data-speed="0.32" viewBox="0 0 110 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M2 12 Q 15 22, 27 12 T 52 12 T 77 12 T 98 12 T 108 12" stroke="#1f3a24" stroke-width="2.4" stroke-linecap="round" fill="none"/>
-  </svg>
-
-  <!-- vinyl record -->
-  <svg class="doodle d-vinyl" data-speed="0.12" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <circle cx="35" cy="35" r="32" stroke="#1f3a24" stroke-width="2.2"/>
-    <circle cx="35" cy="35" r="22" stroke="#1f3a24" stroke-width="1.4" opacity="0.6"/>
-    <circle cx="35" cy="35" r="14" stroke="#1f3a24" stroke-width="1.4" opacity="0.6"/>
-    <circle cx="35" cy="35" r="4" fill="#e0b84d"/>
-  </svg>
-
-  <!-- headphones -->
-  <svg class="doodle d-headph" data-speed="0.2" viewBox="0 0 60 54" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M4 34 V28 A26 26 0 0 1 56 28 V34" stroke="#517a4c" stroke-width="2.2" stroke-linecap="round"/>
-    <rect x="2" y="32" width="12" height="16" rx="5" stroke="#517a4c" stroke-width="2.2"/>
-    <rect x="46" y="32" width="12" height="16" rx="5" stroke="#517a4c" stroke-width="2.2"/>
-  </svg>
-
+  <!--
+    All decorative doodles removed for now - you're drawing your own set.
+    When ready, drop each PNG/SVG in here as:
+      <img class="doodle d-yourname" data-speed="0.2" src="assets/your-doodle.png" alt="">
+    "data-speed" controls how fast it drifts on scroll (0.1 = slow/far,
+    0.4 = fast/close). Position each one via a CSS rule like:
+      .doodle.d-yourname { top: 200px; left: 5%; width: 50px; }
+    in style.css, following the same pattern the old doodles used.
+  -->
 </div>
+
+<!-- Soft translucent watercolor-style background shapes, also drift on
+     scroll for a bit of interactivity while the hand-drawn doodles are
+     still being made. Purely decorative, sits behind everything. -->
+<div class="watercolors" aria-hidden="true">
+  <div class="doodle watercolor-shape wc-1" data-speed="0.08"></div>
+  <div class="doodle watercolor-shape wc-2" data-speed="0.15"></div>
+  <div class="doodle watercolor-shape wc-3" data-speed="0.1"></div>
+  <div class="doodle watercolor-shape wc-4" data-speed="0.18"></div>
+  <div class="doodle watercolor-shape wc-5" data-speed="0.06"></div>
+  <div class="doodle watercolor-shape wc-6" data-speed="0.12"></div>
+  <div class="doodle watercolor-shape wc-7" data-speed="0.09"></div>
+  <div class="doodle watercolor-shape wc-8" data-speed="0.16"></div>
+  <div class="doodle watercolor-shape wc-9" data-speed="0.07"></div>
+  <div class="doodle watercolor-shape wc-10" data-speed="0.14"></div>
+  <div class="doodle watercolor-shape wc-11" data-speed="0.11"></div>
+</div>
+
 
 <!-- HERO SECTION -->
 <header class="hero">
+  <!-- Watercolor blobs painted directly in the hero, since the hero's own
+       background sits above the page-wide ones and was hiding them here. -->
+  <div class="hero-watercolors" aria-hidden="true">
+    <div class="watercolor-shape hero-wc-1"></div>
+    <div class="watercolor-shape hero-wc-2"></div>
+    <div class="watercolor-shape hero-wc-3"></div>
+  </div>
   <div class="hero-inner">
     <div class="hero-left">
       <span class="eyebrow">Howdy, I'm</span>
-      <h1>Madeline<span class="last">Sotirelis</span></h1>
+      <h1><span class="mj-monogram" aria-hidden="true">MJ</span>Madeline<span class="last">Sotirelis</span></h1>
       <p class="email"><a href="mailto:mj.sotirelis2@gmail.com">mj.sotirelis2@gmail.com</a></p>
       <h2>Creative Technology &amp; Design</h2>
       <p>
@@ -105,44 +72,8 @@
     </div>
 
     <div class="hero-right">
-<div class="photo-orbit">
-        <!-- small music-themed icons that slowly orbit the headshot -->
-        <div class="orbit-icon oi-1">
-          <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="12" cy="30" r="7" stroke="#1f3a24" stroke-width="2.2"/>
-            <path d="M19 30 V6 L34 3" stroke="#1f3a24" stroke-width="2.2" stroke-linecap="round"/>
-          </svg>
-        </div>
-        <div class="orbit-icon oi-2">
-          <svg viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="35" cy="35" r="32" stroke="#e0b84d" stroke-width="2.2"/>
-            <circle cx="35" cy="35" r="20" stroke="#e0b84d" stroke-width="1.4" opacity="0.6"/>
-            <circle cx="35" cy="35" r="4" fill="#e0b84d"/>
-          </svg>
-        </div>
-        <div class="orbit-icon oi-3">
-          <svg viewBox="0 0 60 54" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M4 34 V28 A26 26 0 0 1 56 28 V34" stroke="#517a4c" stroke-width="2.4" stroke-linecap="round"/>
-            <rect x="2" y="32" width="12" height="16" rx="5" stroke="#517a4c" stroke-width="2.4"/>
-            <rect x="46" y="32" width="12" height="16" rx="5" stroke="#517a4c" stroke-width="2.4"/>
-          </svg>
-        </div>
-        <div class="orbit-icon oi-4">
-          <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M20 2 L24 16 L38 20 L24 24 L20 38 L16 24 L2 20 L16 16 Z" stroke="#1f3a24" stroke-width="2.2" stroke-linejoin="round"/>
-          </svg>
-        </div>
-        <div class="orbit-icon oi-5">
-          <svg viewBox="0 0 140 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M2 20 Q 12 2, 22 20 T 42 20 T 62 20 T 82 20 T 102 20 T 122 20 T 138 20"
-              stroke="#517a4c" stroke-width="2.4" stroke-linecap="round" fill="none"/>
-          </svg>
-        </div>
-
-        <div class="photo-frame">
-          <img src="assets/headshotFun.jpg" alt="Headshot of Madeline Sotirelis">
-        </div>
-      </div>
+      <div class="photo-frame">
+        <img src="assets/headshotFun.jpg" alt="Headshot of Madeline Sotirelis">
       </div>
     </div>
   </div>
@@ -238,9 +169,7 @@
   <div class="project">
     <h3>Radio Rift (Browser Game)</h3>
     <p>
-<p>
-      An original side-scrolling battle game I built using JavaScript and HTML5 Canvas, where players fight through rhythm-timed encounters across a series of levels. I focused a lot on level pacing, hit detection, and managing game states as the player moves through the intro, battle, and knockout phases. I used AI tools throughout the process to help me prototype mechanics faster and work through tricky logic, while every creative decision, the concept, the feel, the visuals, and the level design, was mine. This project is a good showcase of my game design skills alongside how I use AI to move faster without losing ownership of the creative direction.
-    </p>
+      A side-scrolling battle game I built in JavaScript and HTML5 Canvas, where you fight your way through rhythm-timed encounters across a series of levels. I used AI tools to help me prototype and debug faster, but the concept, visuals, and level design are all mine.
     </p>
 
     <div class="project-images side-by-side">
@@ -248,7 +177,7 @@
       <img src="assets/radiorift1.jpg" alt="Radio Rift battle screenshot">
     </div>
 
-    <div class="game-embed-wrap">
+    <div class="game-embed-wrap" style="max-width: 800px;">
       <div class="game-embed-inner" id="radiorift-embed-inner" data-base-width="800" data-base-height="620">
         <iframe
           data-src="radiorift/index.html?embed=1"
@@ -271,25 +200,6 @@
     <p>
       A fast-paced two-player game built with p5.js where users can select a character and race against each other in a WASD vs IJKL keys setup. The game features simple mechanics, colorful graphics, and a fun competitive element. I implemented a finite state machine to manage game states like start screen, gameplay, and game over, ensuring smooth transitions and an engaging user experience. All iconography, graphics, and animations were created by me using Procreate.
     </p>
-<p>
-      A fast-paced two-player game built with p5.js where users can select a character and race against each other in a WASD vs IJKL keys setup. The game features simple mechanics, colorful graphics, and a fun competitive element. I implemented a finite state machine to manage game states like start screen, gameplay, and game over, ensuring smooth transitions and an engaging user experience. All iconography, graphics, and animations were created by me using Procreate.
-    </p>
-
-    <div class="game-embed-wrap">
-      <div class="game-embed-inner" id="game-embed-inner" data-base-width="1000" data-base-height="560">
-        <iframe
-          data-src="game/index.html"
-          title="Duel Dash game"
-          width="1000"
-          height="560"
-          frameborder="0"
-          loading="lazy">
-        </iframe>
-      </div>
-    </div>
-    <a href="game/index.html" target="_blank" rel="noopener noreferrer" class="project-link">
-      Play Fullscreen →
-    </a>
 
     <div class="project-images side-by-side">
       <img src="assets/titlescreen.jpeg" alt="Duel Dash Game Screenshot 1">
@@ -329,7 +239,7 @@
       A geometric lamp I designed in SketchUp and laser cut from acrylic sheets. I designed the panels to slot together without any adhesive, so the joinery itself becomes part of the look. Since the panels are clear acrylic, the light passes through and reflects off all the angled surfaces, which was the main effect I was going for.
     </p>
 
-    <div class="project-images grid-2x2">
+    <div class="project-images grid-2x2 square">
       <img src="assets/lamp_34angle.jpg" alt="Lamp 3D model, 3/4 angle">
       <img src="assets/lamp_wormseye.jpg" alt="Lamp 3D model, worm's eye view">
       <img src="assets/lamp_photo1.jpg" alt="Finished acrylic lamp, photo 1">
@@ -372,7 +282,7 @@
       A functional guitar stand designed and built using only 2x2 wood and screws. Created as part of a prototyping project, focusing on stability, simplicity, and efficient material use. Used SketchUp for 3D modeling the stand fully and its parts individually.
     </p>
 
-    <div class="project-images side-by-side">
+    <div class="project-images side-by-side uniform">
       <img src="assets/model1.jpeg" alt="Guitar stand 3D model">
       <img src="assets/physical1.jpeg" alt="Physical guitar stand">
     </div>
@@ -411,7 +321,11 @@
          Replace the placeholder slides below with real <img> tags once
          you have photos — just swap the .carousel-slide contents. -->
     <div class="carousel" id="event-carousel">
-      <button class="carousel-arrow prev" onclick="carouselMove(-1)" aria-label="Previous photo">‹</button>
+      <button class="carousel-arrow prev" onclick="carouselMove(-1)" aria-label="Previous photo">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M15 6l-6 6 6 6" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
 
       <div class="carousel-track" id="carousel-track">
         <div class="carousel-slide placeholder">
@@ -428,7 +342,11 @@
         </div>
       </div>
 
-      <button class="carousel-arrow next" onclick="carouselMove(1)" aria-label="Next photo">›</button>
+      <button class="carousel-arrow next" onclick="carouselMove(1)" aria-label="Next photo">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 6l6 6-6 6" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
     </div>
   </div>
 </section>
