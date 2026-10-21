@@ -107,7 +107,10 @@ if (window.ResizeObserver) {
 }
 
 // ---------- EVENT PHOTO CAROUSEL ----------
-// Click arrows on desktop; swipe on mobile (native scroll-snap handles touch).
+// Click arrows, swipe on mobile (native scroll-snap handles touch), or
+// click-and-drag with a mouse (added below since the scrollbar is hidden
+// for looks, which otherwise leaves desktop mouse users with no way to
+// scroll besides the arrow buttons).
 const carouselTrack = document.getElementById("carousel-track");
 
 function carouselMove(direction) {
@@ -116,4 +119,39 @@ function carouselMove(direction) {
   if (!slide) return;
   const slideWidth = slide.getBoundingClientRect().width + 16; // + gap
   carouselTrack.scrollBy({ left: direction * slideWidth, behavior: "smooth" });
+}
+
+if (carouselTrack) {
+  let isDragging = false;
+  let dragStartX = 0;
+  let scrollStartLeft = 0;
+  let didDrag = false;
+
+  carouselTrack.addEventListener("mousedown", (e) => {
+    isDragging = true;
+    didDrag = false;
+    carouselTrack.classList.add("dragging");
+    dragStartX = e.pageX;
+    scrollStartLeft = carouselTrack.scrollLeft;
+  });
+
+  window.addEventListener("mousemove", (e) => {
+    if (!isDragging) return;
+    e.preventDefault();
+    const delta = e.pageX - dragStartX;
+    if (Math.abs(delta) > 4) didDrag = true;
+    carouselTrack.scrollLeft = scrollStartLeft - delta;
+  });
+
+  window.addEventListener("mouseup", () => {
+    if (!isDragging) return;
+    isDragging = false;
+    carouselTrack.classList.remove("dragging");
+  });
+
+  // Prevent a drag from also being read as a click on whatever's underneath
+  // (e.g. an image), since mouseup fires on the element under the cursor.
+  carouselTrack.addEventListener("click", (e) => {
+    if (didDrag) { e.preventDefault(); e.stopPropagation(); }
+  }, true);
 }

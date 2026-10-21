@@ -1,5 +1,5 @@
 /* =========================================================
-   MADELINE SOTIRELIS PORTFOLIO — v2
+   MADELINE SOTIRELIS PORTFOLIO v2
    Fonts: Unbounded (display/bold geometric), Space Grotesk (body)
    ========================================================= */
 
@@ -217,18 +217,21 @@ body {
 .hero-inner {
   position: relative;
   z-index: 1;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 40px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-areas:
+    "name ."
+    "bubbles photo";
+  column-gap: 56px;
+  row-gap: 10px;
+  align-items: start;
   max-width: 1200px;
   margin: 0 auto;
 }
 
 .hero-left {
-  flex: 1;
-  min-width: 300px;
+  grid-area: name;
+  min-width: 0;
   max-width: 100%;
 }
 
@@ -240,7 +243,6 @@ body {
   color: var(--moss);
   display: block;
   width: fit-content;
-  transform: rotate(-3deg);
   margin-bottom: 4px;
 }
 
@@ -333,56 +335,129 @@ body {
 }
 
 .hero-right {
-  flex-shrink: 0;
+  grid-area: photo;
   position: relative;
-  margin-top: 170px;
+  margin-top: 10px;
 }
 
 .photo-frame {
+  --photo-size: 380px;
   position: relative;
-  width: 380px;
-  height: 380px;
+  width: var(--photo-size);
+  height: var(--photo-size);
 }
 
-.photo-frame::before {
-  content: "";
-  position: absolute;
-  inset: -14px;
-  border: 2.5px dashed var(--forest);
-  border-radius: 50%;
-  animation: spin-slow 40s linear infinite;
-}
 
-@keyframes spin-slow {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
 
-@media (prefers-reduced-motion: reduce) {
-  .photo-frame::before { animation: none; }
-}
 
 .hero-right img {
-  width: 380px;
-  height: 380px;
+  width: var(--photo-size, 380px);
+  height: var(--photo-size, 380px);
   object-fit: cover;
   border-radius: 50%;
   border: 4px solid var(--forest);
-  box-shadow: 8px 10px 0 var(--gold);
+  /* even yellow glow all the way around, no offset */
+  box-shadow: 0 0 0 9px rgba(224, 184, 77, 0.40), 0 0 38px 14px rgba(224, 184, 77, 0.45);
   position: relative;
   z-index: 1;
+  display: block;
+}
+
+/* Sparse little sparkle stars around the headshot */
+.photo-frame .star {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: var(--sz, 22px);
+  height: var(--sz, 22px);
+  margin: calc(var(--sz, 22px) / -2) 0 0 calc(var(--sz, 22px) / -2);
+  transform: rotate(var(--a)) translateX(calc(var(--photo-size) / 2 + var(--gap, 34px))) rotate(calc(-1 * var(--a)));
+  z-index: 2;
+  pointer-events: none;
+}
+.photo-frame .star::before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: var(--gold);
+  clip-path: polygon(50% 0%, 61% 39%, 100% 50%, 61% 61%, 50% 100%, 39% 61%, 0% 50%, 39% 39%);
+  animation: twinkle 3.2s ease-in-out infinite;
+  animation-delay: var(--d, 0s);
+}
+@keyframes twinkle {
+  0%, 100% { transform: scale(1) rotate(0deg); opacity: 1; }
+  50% { transform: scale(0.65) rotate(18deg); opacity: 0.65; }
+}
+.star.s1 { --a: -62deg; --sz: 26px; --gap: 36px; --d: 0s; }
+.star.s2 { --a: -8deg;  --sz: 16px; --gap: 44px; --d: .6s; }
+.star.s3 { --a: 48deg;  --sz: 22px; --gap: 34px; --d: 1.2s; }
+.star.s4 { --a: 118deg; --sz: 14px; --gap: 46px; --d: 1.8s; }
+.star.s5 { --a: 188deg; --sz: 24px; --gap: 36px; --d: .3s; }
+.star.s6 { --a: 246deg; --sz: 16px; --gap: 42px; --d: 1.5s; }
+@media (prefers-reduced-motion: reduce) {
+  .photo-frame .star::before { animation: none; }
+}
+
+/* Bio speech bubbles, tails point toward the headshot */
+.hero-bubbles {
+  grid-area: bubbles;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  min-width: 0;
+  padding-top: 10px;
+}
+.bio-bubble {
+  position: relative;
+  background: var(--cream);
+  border: 2px solid var(--forest);
+  border-radius: 30px;
+  padding: 22px 28px;
+  box-shadow: 5px 6px 0 var(--sage);
+  max-width: 600px;
+  animation: bubble-pop 0.7s cubic-bezier(0.2, 0.8, 0.3, 1.2) both;
+}
+.bio-bubble.b1 { animation-delay: 0.15s; margin-right: 0; }
+.bio-bubble.b2 { animation-delay: 0.35s; margin-left: 40px; }
+.bio-bubble.b3 { animation-delay: 0.55s; margin-left: 12px; }
+.bio-bubble p { margin: 0; font-size: 16px; line-height: 1.6; color: var(--ink); max-width: none; }
+.bio-bubble::after {
+  content: "";
+  position: absolute;
+  top: 30px;
+  right: -13px;
+  width: 24px;
+  height: 24px;
+  background: var(--cream);
+  border-top: 2px solid var(--forest);
+  border-right: 2px solid var(--forest);
+  transform: rotate(45deg);
+}
+@keyframes bubble-pop {
+  from { opacity: 0; transform: translateY(18px) scale(0.94); }
+  to   { opacity: 1; transform: none; }
+}
+.hero-bubbles .hero-signoff {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 1.5;
+  color: var(--moss);
+  margin: 6px 0 0;
+  max-width: 600px;
+}
+@media (prefers-reduced-motion: reduce) {
+  .bio-bubble { animation: none; }
 }
 
 /* ------------------ NAVIGATION ------------------ */
 nav {
-  background: rgba(246, 242, 228, 0.92);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-  border-bottom: 1.5px solid var(--forest);
+  background: transparent;
+  border-bottom: none;
   position: sticky;
   top: 0;
   z-index: 20;
-  box-shadow: 0 2px 10px rgba(23, 40, 26, 0.06);
 }
 
 nav ul {
@@ -390,9 +465,9 @@ nav ul {
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  gap: 6px;
+  gap: 28px;
   list-style: none;
-  padding: 10px 16px;
+  padding: 18px 16px;
   margin: 0;
 }
 
@@ -401,37 +476,35 @@ nav li {
   font-family: var(--font-body);
   font-weight: 600;
   color: var(--forest);
-  font-size: 14px;
-  letter-spacing: 0.2px;
-  padding: 9px 16px;
-  border-radius: 999px;
-  border: 1.5px solid transparent;
+  font-size: 13px;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  padding: 6px 2px;
+  border-bottom: 2px solid transparent;
   transition: all 0.2s ease;
   position: relative;
 }
 
 nav li:hover {
-  color: var(--forest);
-  background: var(--mint-pale);
+  color: var(--moss);
 }
 
 nav li.active {
-  background: var(--forest);
-  color: var(--cream);
+  background: none;
+  color: var(--forest);
   border-color: var(--forest);
 }
 
 nav li.contact-tab {
   margin-left: 6px;
-  border: 1.5px solid var(--forest);
   color: var(--forest);
 }
 
 nav li.contact-tab:hover,
 nav li.contact-tab.active {
-  background: var(--gold);
+  background: none;
   border-color: var(--gold);
-  color: var(--ink);
+  color: var(--gold);
 }
 
 /* persistent floating contact button, top-right of viewport */
@@ -474,8 +547,8 @@ nav li.contact-tab.active {
 
 /* ------------------ CONTENT SECTIONS ------------------ */
 .content {
-  padding: 50px 6vw 70px 6vw;
-  max-width: 1100px;
+  padding: 50px 3vw 70px 3vw;
+  max-width: 1400px;
   margin: 0 auto;
   position: relative;
   z-index: 1;
@@ -493,66 +566,114 @@ nav li.contact-tab.active {
 
 .hidden { display: none; }
 
-/* ------------------ PROJECT CARDS ------------------ */
+/* ------------------ PROJECT LAYOUT (airy, alternating, freeform) ------------------ */
+/* Each .project is a row: media on one side, text on the other, and it
+   flips sides every other project so the page doesn't read as a stack of
+   identical boxes. No borders/boxes around the whole project anymore -
+   just generous space and a scroll-in motion per piece. */
 .project {
-  background: var(--cream);
-  padding: 28px 30px;
-  margin-bottom: 36px;
-  border-radius: 14px;
-  border: 2px solid var(--forest);
-  box-shadow: 6px 6px 0 var(--sage);
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  padding: 80px 0;
+  margin-bottom: 0;
+}
 
+.project:nth-of-type(even) {
+  flex-direction: row-reverse;
+}
+
+.project-media {
+  flex: 1 1 460px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 18px;
+}
+
+/* Text sits in a soft speech-bubble/cloud shape with a little tail
+   pointing back toward the image, instead of plain floating text. */
+.project-text {
+  flex: 1 1 360px;
+  text-align: left;
+  position: relative;
+  background: var(--cream);
+  border: 2px solid var(--forest);
+  border-radius: 32px;
+  padding: 32px 36px;
+  box-shadow: 5px 6px 0 var(--sage);
+}
+
+.project-text::after {
+  content: "";
+  position: absolute;
+  top: 44px;
+  width: 24px;
+  height: 24px;
+  background: var(--cream);
+  border-left: 2px solid var(--forest);
+  border-bottom: 2px solid var(--forest);
+  left: -13px;
+  transform: rotate(45deg);
+}
+
+.project:nth-of-type(even) .project-text::after {
+  left: auto;
+  right: -13px;
+  transform: rotate(-135deg);
+}
+
+/* Media slides in from its own side, text from the opposite side - more
+   distinct motion than a flat fade, feels like pieces arriving rather
+   than one block appearing. */
+.project-media {
+  opacity: 0;
+  transform: translateX(-36px);
+  transition: opacity 0.7s cubic-bezier(0.2, 0.7, 0.3, 1), transform 0.7s cubic-bezier(0.2, 0.7, 0.3, 1);
+}
+.project-text {
+  opacity: 0;
+  transform: translateX(36px);
+  transition: opacity 0.7s cubic-bezier(0.2, 0.7, 0.3, 1) 0.1s, transform 0.7s cubic-bezier(0.2, 0.7, 0.3, 1) 0.1s;
+}
+.project:nth-of-type(even) .project-media { transform: translateX(36px); }
+.project:nth-of-type(even) .project-text { transform: translateX(-36px); }
+
+.project.in-view .project-media,
+.project.in-view .project-text {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Full-width elements within a project (game embeds, play links) don't
+   belong squeezed into a half-width column - they get their own row
+   below the media/text intro, spanning the full project width. */
+.project-full {
+  flex: 1 1 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  text-align: center;
-
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+  margin-top: 10px;
 }
-
-.project.in-view {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Stagger children so a project doesn't pop in as one flat block -
-   heading first, then text, then images trail in slightly after. */
-.project > * {
-  opacity: 0;
-  transform: translateY(14px);
-  transition: opacity 0.5s ease, transform 0.5s ease;
-}
-.project.in-view > * { opacity: 1; transform: translateY(0); }
-.project.in-view > *:nth-child(1) { transition-delay: 0s; }
-.project.in-view > *:nth-child(2) { transition-delay: 0.08s; }
-.project.in-view > *:nth-child(3) { transition-delay: 0.16s; }
-.project.in-view > *:nth-child(4) { transition-delay: 0.24s; }
-.project.in-view > *:nth-child(5) { transition-delay: 0.32s; }
 
 @media (prefers-reduced-motion: reduce) {
-  .project, .project > * { transition: none; }
-}
-
-.project:hover {
-  box-shadow: 9px 9px 0 var(--gold);
-  transform: translateY(-4px);
+  .project-media, .project-text { transition: none; }
 }
 
 .project h3 {
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: 28px;
+  font-size: 34px;
   color: var(--forest);
-  margin: 0 0 8px 0;
+  margin: 0 0 12px 0;
 }
 
 .project p {
-  font-size: 15px;
-  line-height: 1.6;
-  margin: 0 0 16px 0;
-  max-width: 580px;
+  font-size: 16.5px;
+  line-height: 1.65;
+  margin: 0;
+  max-width: 480px;
   color: var(--ink);
 }
 
@@ -565,22 +686,32 @@ nav li.contact-tab.active {
   flex-wrap: wrap;
 }
 
-.project-images.side-by-side img { width: 300px; height: auto; }
+/* Fluid width (not fixed px) so two images always actually sit side by
+   side regardless of how wide the media column ends up being in the
+   asymmetric project layout, instead of wrapping onto their own lines. */
+.project-images.side-by-side img {
+  flex: 1 1 calc(50% - 9px);
+  width: calc(50% - 9px);
+  min-width: 140px;
+  height: auto;
+}
 
 .project-images.stacked {
   flex-direction: column;
   align-items: center;
 }
-.project-images.stacked img { width: 300px; height: auto; }
+.project-images.stacked img { width: 340px; height: auto; }
 
-.project-images.single img { width: 320px; height: auto; }
+.project-images.single img { width: 400px; height: auto; }
 
 /* For projects where the source photos are naturally very different
    shapes (e.g. a square 3D render next to a portrait phone photo) but
    should still appear as a matched pair - crops gently into a shared
    portrait box rather than showing two different-sized images. */
 .project-images.uniform img {
-  width: 300px;
+  flex: 1 1 calc(50% - 9px);
+  width: calc(50% - 9px);
+  min-width: 140px;
   height: auto;
   aspect-ratio: 3 / 4;
   object-fit: cover;
@@ -598,13 +729,6 @@ nav li.contact-tab.active {
 .project-images img:nth-child(odd)  { transform: rotate(-1.5deg); }
 .project-images img:hover { transform: scale(1.03) rotate(0deg); }
 
-.project iframe {
-  width: 100%;
-  max-width: 900px;
-  height: 1000px;
-  border: 2px solid var(--forest);
-  border-radius: 8px;
-}
 
 /* ------------------ GAME EMBED (Duel Dash) ------------------ */
 .game-embed-wrap {
@@ -627,6 +751,7 @@ nav li.contact-tab.active {
 .game-embed-inner iframe {
   display: block;
   border: none;
+  max-width: none;
   transform-origin: top left;
 }
 
@@ -644,7 +769,7 @@ nav li.contact-tab.active {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  margin-bottom: 16px;
+  margin-top: 16px;
   font-weight: 600;
   font-size: 14px;
   color: var(--cream);
@@ -737,25 +862,31 @@ nav li.contact-tab.active {
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
-  padding: 4px;
+  align-items: center;
+  padding: 4px 4px 10px;
   flex: 1;
+  min-width: 0;
   scrollbar-width: none;
+  cursor: grab;
 }
 .carousel-track::-webkit-scrollbar { display: none; }
+.carousel-track.dragging {
+  cursor: grabbing;
+  scroll-snap-type: none;
+  scroll-behavior: auto;
+}
 
 .carousel-slide {
   scroll-snap-align: center;
   flex: 0 0 100%;
-  min-height: 260px;
+  height: auto;
   border: 2px solid var(--forest);
   border-radius: 14px;
   background: var(--cream);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
   box-shadow: 5px 5px 0 var(--sage);
+  padding: 8px;
+  line-height: 0;
+  box-sizing: border-box;
 }
 
 .carousel-slide.placeholder span { font-size: 40px; }
@@ -769,10 +900,10 @@ nav li.contact-tab.active {
 }
 
 .carousel-slide img {
+  display: block;
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 12px;
+  height: auto;
+  border-radius: 8px;
 }
 
 .carousel-arrow {
@@ -805,7 +936,8 @@ nav li.contact-tab.active {
 .carousel-arrow:hover svg path { stroke: var(--cream); }
 
 @media (max-width: 700px) {
-  .carousel-arrow { display: none; } /* rely on swipe on mobile */
+  .carousel-arrow { width: 32px; height: 32px; }
+  .carousel-arrow svg { width: 14px; height: 14px; }
 }
 
 /* ------------------ FOOTER ------------------ */
@@ -822,15 +954,36 @@ footer {
 }
 
 /* ------------------ RESPONSIVE ------------------ */
+@media (min-width: 901px) and (max-width: 1150px) {
+  .photo-frame { --photo-size: 320px; }
+}
+
 @media (max-width: 900px) {
-  .hero-inner { flex-direction: column; text-align: center; }
-  .hero-left { text-align: center; min-width: 0; width: 100%; }
+  .hero-inner {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas: "name" "photo" "bubbles";
+    justify-items: center;
+    text-align: center;
+    row-gap: 34px;
+  }
+  .hero-left { text-align: center; width: 100%; }
   .eyebrow { margin-left: auto; margin-right: auto; }
-  .hero-left p { margin: 0 auto; }
-  .hero-right { margin-top: 30px; }
-  .photo-frame { width: 270px; height: 270px; }
-  .hero-right img { width: 270px; height: 270px; }
-  .project iframe { height: 800px; }
+  .hero-right { margin-top: 6px; }
+  .photo-frame { --photo-size: 270px; }
+  .hero-bubbles { width: 100%; align-items: center; }
+  .bio-bubble, .hero-bubbles .hero-signoff { max-width: 560px; width: 100%; text-align: left; }
+  .bio-bubble.b2, .bio-bubble.b3 { margin-left: 0; }
+  .hero-bubbles .hero-signoff { text-align: center; }
+  /* tails flip to the top, pointing up toward the photo */
+  .bio-bubble::after {
+    top: -13px;
+    right: auto;
+    left: 50%;
+    margin-left: -12px;
+    border: none;
+    border-top: 2px solid var(--forest);
+    border-left: 2px solid var(--forest);
+  }
   .project { padding: 22px 18px; }
   nav li { padding: 10px 16px; }
   .contact-wrap { flex-direction: column; align-items: stretch; }
@@ -846,12 +999,11 @@ footer {
   .hero { padding: 60px 6vw 40px 6vw; }
   .hero-left h1 { font-size: 44px; }
   .hero-left h2 { font-size: 15px; padding: 5px 12px; }
-  .hero-left p { font-size: 15px; }
-  .photo-frame { width: 180px; height: 180px; }
-  .hero-right img { width: 180px; height: 180px; }
+  .photo-frame { --photo-size: 210px; }
+  .bio-bubble { padding: 18px 20px; border-radius: 24px; }
+  .bio-bubble p { font-size: 15px; }
   .project h3 { font-size: 21px; }
   .project p { font-size: 14.5px; line-height: 1.55; }
-  .project iframe { height: 600px; }
   .content { padding: 36px 5vw 50px 5vw; }
   .content h2 { font-size: 30px; margin-bottom: 28px; }
   nav ul { gap: 8px; padding: 12px 10px; }
@@ -893,4 +1045,6 @@ footer {
 
 /* Prevent any accidental horizontal scroll from oversized elements */
 html, body { max-width: 100%; overflow-x: hidden; }
-img, iframe { max-width: 100%; }
+img { max-width: 100%; }
+
+.resume-link svg { flex-shrink: 0; }
